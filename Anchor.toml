@@ -1,0 +1,12 @@
+[programs.devnet]
+carbon = "LCCDPD5uq2QZMeHjd71unWu6nr8no9wwjcH3qMQwXXj"
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "devnet"
+wallet = "localnet-keys/LAMNrme9Q9CWXmctMRFQ18PXtdTfeDLgd7suoSyN4eE.json"
+
+[scripts]
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/contract*.ts"
