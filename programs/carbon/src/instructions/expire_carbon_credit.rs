@@ -16,7 +16,7 @@ pub struct ExpireCarbonCreditCtx<'info> {
     #[account(mut)]
     /// CHECK:
     pub user: AccountInfo<'info>,
-    #[account(mut)]
+    #[account(mut, constraint = carbon_receipt.mint == nft_mint.key())]
     carbon_receipt: Box<Account<'info, CarbonReceipt>>,
     #[account(mut, seeds = [CONFIG_PREFIX.as_bytes()], bump)]
     mint_config: Box<Account<'info, MintConfig>>,
