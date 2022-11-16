@@ -36,4 +36,12 @@ pub mod carbon {
     pub fn expire_carbon_credit(ctx: Context<ExpireCarbonCreditCtx>) -> Result<()> {
         expire_carbon_credit::handler(ctx)
     }
+
+    pub fn mark_fulfilled(ctx: Context<MarkFulfilledCtx>) -> Result<()> {
+        mark_fulfilled::handler(ctx)
+    }
+
+    pub fn mark_unfulfilled(ctx: Context<MarkFulfilledCtx>) -> Result<()> {
+        mark_fulfilled::handler_mark_unfulfilled(ctx)
+    }
 }

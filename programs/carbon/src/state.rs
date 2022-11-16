@@ -17,11 +17,12 @@ pub const MINT_CONFIG_SIZE: usize = 8 + //key
 
 #[account]
 pub struct CarbonReceipt {
-    pub buyer: Pubkey,    //32
-    pub mint: Pubkey,     //32
-    pub time: i64,        //8
-    pub amount: u64,      //8
-    pub is_expired: bool, //1
+    pub buyer: Pubkey,      //32
+    pub mint: Pubkey,       //32
+    pub time: i64,          //8
+    pub amount: u64,        //8
+    pub is_expired: bool,   //1
+    pub is_fulfilled: bool, //1
 }
 
 pub const CARBON_RECEIPT_SIZE: usize = 8 + //key
@@ -30,4 +31,5 @@ pub const CARBON_RECEIPT_SIZE: usize = 8 + //key
 8 + //time
 8 + //amount
 1 + //is_expired
-32; //extra storage
+1 + //is_fulfilled
+31; //extra storage

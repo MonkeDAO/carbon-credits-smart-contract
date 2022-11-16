@@ -93,6 +93,7 @@ pub fn handler(ctx: Context<CarbonCreditCtx>, amount: u64) -> Result<()> {
     carbon_receipt.amount = amount;
     carbon_receipt.mint = ctx.accounts.new_nft_mint.key();
     carbon_receipt.is_expired = false;
+    carbon_receipt.is_fulfilled = false;
 
     // transfer purchase token to admin
     let token_amount = amount.checked_mul(mint_config.one_credit_price).unwrap();

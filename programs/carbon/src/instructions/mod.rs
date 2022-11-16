@@ -2,11 +2,13 @@ pub mod carbon_credit;
 pub mod delete_config;
 pub mod expire_carbon_credit;
 pub mod init_config;
+pub mod mark_fulfilled;
 
 pub use carbon_credit::*;
 pub use delete_config::*;
 pub use expire_carbon_credit::*;
 pub use init_config::*;
+pub use mark_fulfilled::*;
 
 use anchor_lang::prelude::*;
 use mpl_token_metadata::state::{self};

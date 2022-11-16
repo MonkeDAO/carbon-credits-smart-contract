@@ -256,6 +256,36 @@ describe("CC", async () => {
     }
   });
 
+  it("Admin mark the carbon credit as fulfilled and then mark it as unfulfilled", async () => {
+    // Mark as fulfilled
+    try {
+      const txnSign = await anchorProgram.rpc.markFulfilled({
+        accounts: {
+          admin: adminKeypair.publicKey,
+          carbonReceipt: carbonCreditReceiptKp.publicKey,
+        },
+      });
+      console.log({ txnSign });
+    } catch (error) {
+      console.log({ error });
+      throw new Error("Failed to make fulfilled");
+    }
+
+    // Mark as unfulfilled
+    try {
+      const txnSign = await anchorProgram.rpc.markUnfulfilled({
+        accounts: {
+          admin: adminKeypair.publicKey,
+          carbonReceipt: carbonCreditReceiptKp.publicKey,
+        },
+      });
+      console.log({ txnSign });
+    } catch (error) {
+      console.log({ error });
+      throw new Error("Failed to make un-fulfilled");
+    }
+  });
+
   it("Admin changes the metadata of that NFT", async () => {
     const { mintConfig, newNftCreator } = await getAllPDAs(anchorProgram);
 
